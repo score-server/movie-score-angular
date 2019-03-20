@@ -1,6 +1,6 @@
 export const API_ROOT = 'http://scorewinner.ch:8081/api';
 
-export const API_SESSION = '?sessionId=x';
+export const API_SESSION = '?sessionId=087bdf7a63378722a0b98bdf4679bbb097e1bf3a90a4b553ea9d741b211ec2a1';
 
 const Api = {
 
@@ -11,6 +11,7 @@ const Api = {
 
   USER_CURRENT: () => `${API_ROOT}/user/current/${API_SESSION}`,
 
+  LOGIN: (username, password) => `${API_ROOT}/login?user=${username}&password=${password}`
 };
 
 export default Api;

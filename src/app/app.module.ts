@@ -8,10 +8,13 @@ import {MovieComponent} from './movie/movie.component';
 import {NavigationComponent} from './navigation/navigation.component';
 import {MovieCardComponent} from './shared/movie-card/movie-card.component';
 import {HttpClientModule} from '@angular/common/http';
-
+import {CookieService} from 'ngx-cookie-service';
+import {LoginComponent} from './login/login.component';
+import {FormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'movie/:id', component: MovieComponent},
 ];
 
@@ -22,7 +25,8 @@ const appRoutes: Routes = [
     HomeComponent,
     MovieComponent,
     NavigationComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +34,10 @@ const appRoutes: Routes = [
       appRoutes,
       {enableTracing: true} // <-- debugging purposes only
     ),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
