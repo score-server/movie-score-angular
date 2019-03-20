@@ -1,0 +1,59 @@
+<div class="card card-body">
+  <p>
+    id & title:
+    {{ movie.id }}
+    {{ movie.title }}
+  </p>
+  <p>
+    year:
+    {{ movie.year }}
+  </p>
+  <p>
+    rating:
+    {{ movie.voteAverage }}
+  </p>
+  <p>
+    popularity:
+    {{ movie.popularity }}
+  </p>
+  <p>
+    background img:
+    <img src="{{ movie.backgroundImg }}" width="50px">
+  </p>
+  <p>
+    cover img:
+    <img src="{{ movie.caseImg }}" width="50px">
+  </p>
+  <p>
+    video:
+    <video src="http://scorewinner.ch:8081/video/movie/{{movie.id}}" width="200px" controls></video>
+  </p>
+  <p>
+    quality & broken:
+    {{ movie.quality }}
+    {{ movie.broken }}
+  </p>
+  <p>
+    filetype:
+    {{ movie.filetype }}
+  </p>
+  <p>
+    runtime:
+    {{ movie.runtime }}
+  </p>
+  <p>
+    descript:
+    {{ movie.descript }}
+  </p>
+  <p>
+    tmdbid & trailerid:
+    {{ movie.tmdbId }},
+    {{ movie.trailerKey }}
+  </p>
+  <p>Genres:</p>
+  <ul>
+    <li *ngFor="let genre of movie.genres">
+      {{genre.name}}
+    </li>
+  </ul>
+</div>
