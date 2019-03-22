@@ -11,10 +11,10 @@ export class NavigationComponent implements OnInit {
   user: User;
 
   constructor(private userService: UserService) {
-    this.user = this.userService.getCurrentUser();
   }
 
   ngOnInit() {
+    this.user = this.userService.getCurrentUser();
   }
 
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpService} from '../service/http.service';
 import {Movie} from '../data/movie';
-import Api from '../service/api.service';
+import {ApiService} from '../service/api.service';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +11,11 @@ import Api from '../service/api.service';
 export class HomeComponent implements OnInit {
   movieList: Movie[];
 
-  constructor(private httpService: HttpService) {
+  constructor(private httpService: HttpService, private apiService: ApiService) {
   }
 
   ngOnInit() {
-    this.httpService.get<Movie[]>(Api.MOVIE_LIST()).subscribe(value => {
-      console.log(value);
+    this.httpService.get<Movie[]>(this.apiService.API.MOVIE_LIST()).subscribe(value => {
       this.movieList = value;
       console.log(this.movieList);
       return this.movieList;

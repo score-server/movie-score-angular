@@ -9,12 +9,12 @@ export class HttpService {
   constructor(private http: HttpClient) {
   }
 
-  get<g>(url: string) {
-    return this.http.get<g>(url);
+  get<G>(url: string) {
+    return this.http.get<G>(url);
   }
 
-  post(url: string) {
-    return this.http.post(url, null);
+  post<G>(url: string) {
+    return this.http.post<G>(url, null);
   }
 
 }

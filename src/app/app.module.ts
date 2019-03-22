@@ -10,7 +10,7 @@ import {MovieCardComponent} from './shared/movie-card/movie-card.component';
 import {HttpClientModule} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import {LoginComponent} from './login/login.component';
-import {FormsModule} from '@angular/forms';
+import {ReactiveFormsModule, Validators} from '@angular/forms';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -35,7 +35,7 @@ const appRoutes: Routes = [
       {enableTracing: true} // <-- debugging purposes only
     ),
     HttpClientModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

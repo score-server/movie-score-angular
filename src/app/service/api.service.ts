@@ -1,17 +1,29 @@
-export const API_ROOT = 'http://scorewinner.ch:8081/api';
+import {Injectable} from '@angular/core';
+import {CookieService} from 'ngx-cookie-service';
 
-export const API_SESSION = '?sessionId=087bdf7a63378722a0b98bdf4679bbb097e1bf3a90a4b553ea9d741b211ec2a1';
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
 
-const Api = {
+  API_ROOT = 'http://localhost:8081/api';
 
-  MOVIE_LIST: () =>
-    `${API_ROOT}/movie${API_SESSION}`,
+  API = {
+    MOVIE_LIST: () => `${this.API_ROOT}/movie${this.getSessionId()}`,
 
-  MOVIE: (movieId) => `${API_ROOT}/movie/${movieId}${API_SESSION}`,
+    MOVIE: (movieId) => `${this.API_ROOT}/movie/${movieId}${this.getSessionId()}`,
 
-  USER_CURRENT: () => `${API_ROOT}/user/current/${API_SESSION}`,
+    USER_CURRENT: () => `${this.API_ROOT}/user/current/${this.getSessionId()}`,
 
-  LOGIN: (username, password) => `${API_ROOT}/login?user=${username}&password=${password}`
-};
+    LOGIN: (username, password) => `${this.API_ROOT}/login?name=${username}&password=${password}`
+  };
 
-export default Api;
+
+  constructor(private cookieService: CookieService) {
+  }
+
+  getSessionId() {
+    return '?sessionId=' + this.cookieService.get('sessionNG');
+  }
+
+}
