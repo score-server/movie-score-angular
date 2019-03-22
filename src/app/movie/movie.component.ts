@@ -10,8 +10,8 @@ import {ApiService} from '../service/api.service';
   styleUrls: ['./movie.component.css']
 })
 export class MovieComponent implements OnInit {
-  private movieId: number;
   movie: Movie;
+  private movieId: number;
 
   constructor(private route: ActivatedRoute, private httpService: HttpService,
               private apiService: ApiService) {

@@ -1,5 +1,5 @@
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let movie of movieList">
+  <li *ngFor="let movie of movieList" class="list-group-item">
     <a routerLink="/movie/{{movie.id}}">
       {{movie.id}}
       {{movie.title}}
