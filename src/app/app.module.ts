@@ -10,7 +10,7 @@ import {MovieCardComponent} from './shared/movie-card/movie-card.component';
 import {HttpClientModule} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import {LoginComponent} from './login/login.component';
-import {ReactiveFormsModule, Validators} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
