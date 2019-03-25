@@ -16,13 +16,15 @@ export class UserService {
   }
 
   getCurrentUser() {
-    this.httpService.get<User>(this.apiService.API.USER_CURRENT()).subscribe(value => this.user = value);
-
+    this.httpService.get<User>(this.apiService.API.USER_CURRENT()).subscribe(value => {
+      this.user = value;
+      console.log(this.user);
+      return this.user;
+    });
     return this.user;
   }
 
   login(username, password) {
-    alert('i got here');
     this.httpService.post<object>(this.apiService.API.LOGIN(username, password)).subscribe(
       value => console.log(value),
       error => this.cookieService.set('sessionNG', error.error.text)
